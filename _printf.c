@@ -12,14 +12,14 @@ int _printf(const char * const format, ...)
 
 	va_start(ap, format);
 
-	while (format[index] != '\0')
+	while (format[index] != '\0') 		//iterates through indivisual characters of format
 	{
-		if (format[index] == '%')
-		{
-			index++;
-			my_index = 0;
-			while (format[index] != my_array[my_index] && my_index < 3)
-				my_index++;
+		if (format[index] == '%')	//checks if the currently picked character of format is a percentage sign or not 
+		{		//if it a % sign
+			index++;	//shit the value of our index of format to the character after the %
+			my_index = 0;	//initialise index of a new array to zero
+			while (format[index] != my_array[my_index] && my_index < 3)	//checks if the the value of character after % is either 'c', 'i' or 's'
+				my_index++;	
 			
 			switch (my_index)
 			{
