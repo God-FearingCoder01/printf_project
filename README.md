@@ -6,9 +6,11 @@ The project's constituents are as follows.
 1. main.c - main programm (or C file) where program execution begins
 2. main.h - header file for function protocols of all functions used.
 3. User defined functions:
-	* _printf.c
-	* print_string.c
-	* print_number.c
-	* _putchar.c
+	* _printf.c - our user defined version of the inbuilt ```printf``` function
+	* print_string.c - prints a given string on screen
+	* print_number.c - prints a given integer value on screen
+	* _putchar.c - prints a single character on screen
+	* program_control.c  - pauses program execution
+4. myPrintf.exe - the executible file :wink:
 
-:man_technologist: :woman_technologist:
+**DO_HARD_THINGS!** :man_technologist: :woman_technologist:
