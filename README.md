@@ -1,5 +1,5 @@
 # printf project (trial)
-This is a trial version of the printf project at ALX SE program, by:<br>
+This is a trial version of the printf project at **ALX SE** program, by:<br>
 &emsp;1. Nkosikhona "Chris Whyt" Mhlope<br>
 &emsp;2. Jennifer Apiyo<br>
 The project's constituents are as follows.
