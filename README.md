@@ -1,5 +1,5 @@
 # printf project (trial)
-This is a trial version of the printf project at ALX SE program, by:
+This is a trial version of the printf project at ALX SE program, by:<br>
 	1. Nkosikhona "Chris Whyt" Mhlope
 	2. Jennifer Apiyo
 The project's constituents are as follows.
@@ -11,4 +11,4 @@ The project's constituents are as follows.
 	* print_number.c
 	* _putchar.c
 
-:man_technolgist: :woman_technologist:
+:man_technologist: :woman_technologist:
