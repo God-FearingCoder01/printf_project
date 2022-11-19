@@ -2,13 +2,10 @@
 #include <stdarg.h>
 #include "main.h"
 
-int get_digits(int n);
-
 int _printf(const char * const format, ...)
 {
 	int index = 0;
-	int my_index, num_digits;
-	int ch;
+	int my_index, num_digits, ch;
 	char my_array[] = {'c', 'i', 's'};
 	char *c_v;
 	va_list ap;
@@ -43,35 +40,14 @@ int _printf(const char * const format, ...)
 				_putchar(ch);
 				break;
 			}
-			/*output_string[index] = (char)ch;*/
 		}
 		else
-		{
-			/*output_string[index] = format[index];*/
 			_putchar(format[index]);
-		}
+
 		index++;
 	}
 
-	/*output_string[index] = '\0';*/
 	va_end(ap);
 
-	/*for (i = 0; output_string[i] != '\0'; i++)
-		write(1, &output_string[i], 1);	*/
-
 	return (index);
-}
-
-int get_digits(int n)
-{
-	int digits = 0;
-	const int base = 10;
-
-	while (n > 0)
-	{
-		digits++;
-		n /= base;
-	}
-
-	return (digits);
 }
