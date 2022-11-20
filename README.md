@@ -1,7 +1,7 @@
 # printf project (trial)
-This is a trial version of the printf project at **ALX SE** program, by:<br>
-&emsp;1. Nkosikhona "Chris Whyt" Mhlope<br>
-&emsp;2. Jennifer Apiyo<br><br>
+This is a trial version of the printf project at **ALX SE** program, by:<br><br>
+&emsp;&emsp;1. Nkosikhona "Chris Whyt" Mhlope<br>
+&emsp;&emsp;2. Jennifer Apiyo<br><br>
 The project's constituents are as follows.
 1. documentation:
 	* General_Procedure.txt - outlines the general procedure for the suggested solution
