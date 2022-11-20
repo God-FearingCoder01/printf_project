@@ -1,8 +1,11 @@
 # printf project (trial)
 This is a trial version of the printf project at **ALX SE** program, by:<br>
 &emsp;1. Nkosikhona "Chris Whyt" Mhlope<br>
-&emsp;2. Jennifer Apiyo<br>
+&emsp;2. Jennifer Apiyo<br><br>
 The project's constituents are as follows.
+0. documentation 
+	* General_Procedure.txt - outlines the general procedure for the suggested solution
+	* Pseudocode.txt - pseudocode for the suggested solution
 1. main.c - main programm (or C file) where program execution begins
 2. main.h - header file for function protocols of all functions used.
 3. User defined functions:
