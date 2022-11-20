@@ -1,0 +1,41 @@
+# printf suggested Pseudocode
+
+START
+	format = function argument
+	conversion_specifiers[4] --> {'c', 's', 'd', 'i'}
+	format_index --> 0
+	null_character --> '\0'
+	percentage_sign --> '%'
+	va_lsit ap
+
+	va_start(ap, format)
+	
+	WHILE (ARRAY ELEMENT format_index OF format  IS NOT  null_character) ==> while you haven't reached the end of format string
+	
+		IF (ARRAY ELEMENT format_index OF format  IS  percentage_sign)  ==> if current picked character is % sign
+
+			INCREMENT format_index BY 1
+			cs_index --> 0
+
+			WHILE ((ARRAY ELEMENT format_index OF format) IS NOT (ARRAY ELEMENT cs_index OF conversion_specifiers)) AND (cs_index < 3)  ==> while character next to the % sign is not any one of the provided conversion specifiers AND while we haven't reached the end of list of those conversion specifiers 
+				INCREMENT cs_index BY 1
+
+			IF (cs_index IS 4) ==> character soon after % sign is non of the provided format specifiers
+				to_be_printed_character --> ARRAY ELEMENT format_index OF format
+				PRINT to_be_printed_character
+			ELSE IF (cs_index IS 3) OR (cs_index IS 2) ==> character soon after % sign is either 'd' or 'i'
+				to_be_printed_character --> va_arg(ap, int)
+				print_number(to_be_printed_character)
+			ELSE IF (cs_index IS 1) ==> character soon after % sign is 's'
+				to_be_printed_character --> va_arg(ap, char *)
+				print_string(to_be_printed_character)
+			ELSE IF (cs IS 0) ==> character soon after % sign is 'c'
+				to_be_printed_character --> va_arg(ap, char)
+				PRINT to_be_printed_character
+		ELSE ==> when current character of format is not a % sign that is
+			PRINT ARRAY ELEMENT format_index OF format ==> print that character out
+
+		INCREMENT format_index BY 1 ==> ensures we move on to the next character in format string 
+
+STOP
+
