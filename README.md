@@ -7,7 +7,7 @@ The project's constituents are as follows.<br>
 	* General_Procedure.txt - outlines the general procedure for the suggested solution
 	* Pseudocode.txt - pseudocode for the suggested solution
 	* Flowchart
-1. main.c - main programm (or C file) where program execution begins
+1. main.c - main program (or C file) where program execution begins
 2. main.h - header file for function protocols of all functions used.
 3. User defined functions:
 	* _printf.c - our user defined version of the inbuilt ```printf``` function
