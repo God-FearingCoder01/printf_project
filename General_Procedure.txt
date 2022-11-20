@@ -1,0 +1,9 @@
+# printf suggested General Procedure
+
+1. iterate the format string picking out each individual character of it at a time.
+2. Check if that picked character is a percentage sign '%'
+3. If % sign, proceed to pick the next character in format
+4. check is this next character (of format) is any of these characters 'c', 'i', 'd', 's'
+5. call va_arg to output an argument value in place of the 'c' or 'i' or 's'
+6. If NOT %, output that character 
+
