@@ -4,50 +4,52 @@
 
 int _printf(const char * const format, ...)
 {
-	int index = 0;
-	int my_index, num_digits, ch;
-	char my_array[] = {'c', 'i', 's'};
-	char *c_v;
+	int format_index = 0;
+	int conversion_specifier_index, character_to_be_printed;
+	char conversion_specifier[] = {'c', 's', 'd', 'i'};
+	char *specifier_substitute;
 	va_list ap;
 
 	va_start(ap, format);
 
-	while (format[index] != '\0') 		//iterates through indivisual characters of format
+	while (format[format_index] != '\0')
 	{
-		if (format[index] == '%')	//checks if the currently picked character of format is a percentage sign or not 
-		{		//if it a % sign
-			index++;	//shit the value of our index of format to the character after the %
-			my_index = 0;	//initialise index of a new array to zero
-			while (format[index] != my_array[my_index] && my_index < 3)	//checks if the the value of character after % is either 'c', 'i' or 's'
-				my_index++;	
+		if (format[format_index] == '%') 
+		{
+			format_index++;	
+			conversion_specifier_index = 0;	
+			while (format[format_index] != conversion_specifier[conversion_specifier_index] && conversion_specifier_index < 4)
+				conversion_specifier_index = conversion_specifier_index + 1;	
 			
-			switch (my_index)
+			switch (conversion_specifier_index)
 			{
-			case 3:
-				ch = format[index];
-				_putchar(ch);
+			case 4:
+				character_to_be_printed = format[format_index];
+				_putchar(character_to_be_printed);
 				break;
+			case 3:
+				
 			case 2:
-				c_v = va_arg(ap, char *);
-				print_string(c_v);
+				character_to_be_printed = va_arg(ap, int);
+				print_number(character_to_be_printed);
 				break;
 			case 1:
-				ch = va_arg(ap, int);
-				print_number(ch);
+				specifier_substitute = va_arg(ap, char *);
+				print_string(specifier_substitute);
 				break;
 			case 0:
-				ch = va_arg(ap, int);
-				_putchar(ch);
+				character_to_be_printed = va_arg(ap, int);
+				_putchar(character_to_be_printed);
 				break;
 			}
 		}
 		else
-			_putchar(format[index]);
+			_putchar(format[format_index]);
 
-		index++;
+		format_index++;
 	}
 
 	va_end(ap);
 
-	return (index);
+	return (format_index);
 }
