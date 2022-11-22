@@ -26,7 +26,10 @@ int _printf(const char * const format, ...)
 			{
 			case 11:
 				character_to_be_printed = format[format_index];
-				_putchar(character_to_be_printed);
+				if (is_flag(character_to_be_printed))
+					print_flag(va_arg(ap, int));
+				else
+					_putchar(character_to_be_printed);
 				break;
 			case 10:
 				character_to_be_printed = va_arg(ap, int);
@@ -57,9 +60,7 @@ int _printf(const char * const format, ...)
 				print_base(2, character_to_be_printed);
 				break;
 			case 3:
-				character_to_be_printed = va_arg(ap, int);
-				print_binary(character_to_be_printed);
-				break;
+
 			case 2:
 				character_to_be_printed = va_arg(ap, int);
 				print_number(character_to_be_printed);

@@ -12,5 +12,8 @@ void print_hex(int num, char v);
 void print_str(char *str);
 void print_pointer(int n);
 void checks_state(char d, int c);
+void check_positivity(int m, char c);
+int is_flag(char k);
+void print_flag(int n);
 
 #endif
