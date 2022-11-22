@@ -17,7 +17,7 @@ int main(void)
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
-	_printf("Len: [%i]\n", len);
+	_printf("Len: [%d]\n", len);
 	_printf("Whurrey %c it worked!\n", 'N');
 	_printf("String: [%s]\n", "I am a String !");
 	_printf("binary val of 98 [%b]\n", x);
