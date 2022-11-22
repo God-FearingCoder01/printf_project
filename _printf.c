@@ -6,8 +6,9 @@ int _printf(const char * const format, ...)
 {
 	int format_index = 0;
 	int conversion_specifier_index, character_to_be_printed;
-	char conversion_specifier[] = {'c', 's', 'd', 'i'};
+	char conversion_specifier[] = {'c', 's', 'd', 'i', 'b'};
 	char *specifier_substitute;
+
 	va_list ap;
 
 	va_start(ap, format);
@@ -24,11 +25,13 @@ int _printf(const char * const format, ...)
 			switch (conversion_specifier_index)
 			{
 			case 4:
-				character_to_be_printed = format[format_index];
+				character_to_be_printed = format[index];
 				_putchar(character_to_be_printed);
 				break;
 			case 3:
-				
+				character_to_be_printed = va_arg(ap, int);
+				print_binary(character_to_be_printed);
+				break;
 			case 2:
 				character_to_be_printed = va_arg(ap, int);
 				print_number(character_to_be_printed);
