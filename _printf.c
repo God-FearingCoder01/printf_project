@@ -6,7 +6,7 @@ int _printf(const char * const format, ...)
 {
 	int index = 0;
 	int my_index, num_digits, ch;
-	char my_array[] = {'c', 'i', 's'};
+	char my_array[] = {'c', 'i', 's', 'b'};
 	char *c_v;
 	va_list ap;
 
@@ -18,14 +18,18 @@ int _printf(const char * const format, ...)
 		{		//if it a % sign
 			index++;	//shit the value of our index of format to the character after the %
 			my_index = 0;	//initialise index of a new array to zero
-			while (format[index] != my_array[my_index] && my_index < 3)	//checks if the the value of character after % is either 'c', 'i' or 's'
+			while (format[index] != my_array[my_index] && my_index < 4)	//checks if the the value of character after % is either 'c', 'i' or 's'
 				my_index++;	
 			
 			switch (my_index)
 			{
-			case 3:
+			case 4:
 				ch = format[index];
 				_putchar(ch);
+				break;
+			case 3:
+				ch = va_arg(ap, int);
+				print_binary(ch);
 				break;
 			case 2:
 				c_v = va_arg(ap, char *);

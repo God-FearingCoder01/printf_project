@@ -13,13 +13,14 @@ int main(void)
 	int len, len2;
 	/*unsigned int ui;*/
 	void *addr;
+	unsigned int x = 98;
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Len: [%i]\n", len);
 	_printf("Whurrey %c it worked!\n", 'N');
 	_printf("String: [%s]\n", "I am a String !");
-
+	_printf("binary val of 98 [%b]\n", x);
 	pause_program();
 
 	return (0);
