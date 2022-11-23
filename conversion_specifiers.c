@@ -15,8 +15,8 @@ int format_specifier_elements_number(const char* const p, int i)
         int format_specifier_element_num = 0;
         while (!is_conversion_specifier(p[i]))
         {
-                format_specifier_element_num++;
-                i++;
+                format_specifier_element_num += 1;
+                i += 1;
         }
         return (format_specifier_element_num);
 }
@@ -35,7 +35,7 @@ int is_conversion_specifier(char c)
         int conversion_specifier_index = 0;
         while (conversion_specifier[conversion_specifier_index] != c
 && conversion_specifier_index < conversion_specifier_size)
-                conversion_specifier_index++;
+                conversion_specifier_index += 1;;
         if (conversion_specifier_index < conversion_specifier_size)
                 return(1);
         return (0);

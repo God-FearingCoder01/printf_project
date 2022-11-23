@@ -17,8 +17,8 @@ int main(void)
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
-	_printf("%#i", len2);
-	_printf("Len: [% d]\n", len);
+	_printf("% i \n", len2);
+	_printf("% d\n", len);
 	_printf("Whurrey %c it worked!\n", 'N');
 	_printf("String: [%s]\n", "I am a String !");
 	_printf("Here's octal: %#o\n", len);

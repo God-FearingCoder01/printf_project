@@ -7,7 +7,7 @@ static int flags_index;
 
 int is_flag(char k)
 {
-	int flags_index = 0;
+	flags_index = 0;
 
 	while (k != flags[flags_index] && flags_index < flags_size)
 		flags_index++;
