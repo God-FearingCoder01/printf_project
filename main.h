@@ -14,8 +14,9 @@ void print_pointer(int n);
 void checks_state(char d, int c);
 void check_positivity(int m, char c);
 int is_flag(char k);
-void print_flag(int n);
+void print_flag(int n, char c);
 int is_conversion_specifier(char c);
 int format_specifier_elements_number(const char* const p, int i);
+void check_specifier(char c);
 
 #endif

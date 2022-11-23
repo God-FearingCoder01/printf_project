@@ -7,7 +7,7 @@ static int flags_index;
 
 int is_flag(char k)
 {
-	flags_index = 0;
+	int flags_index = 0;
 
 	while (k != flags[flags_index] && flags_index < flags_size)
 		flags_index++;
@@ -16,7 +16,7 @@ int is_flag(char k)
 	return (0);
 }
 
-void print_flag(int n)
+void print_flag(int n, char c)
 {
 
 	switch (flags_index)
@@ -28,17 +28,34 @@ void print_flag(int n)
 		check_positivity(n, flags[flags_index]);
 		break;
 	case 2:
-		break;
+		switch (c)
+		{
+		case 'o':
+			check_specifier(c);
+			break;
+		case 'x':
+			check_specifier(c);
+			break;
+		case 'X':
+			check_specifier(c);
+			break;
+		}
 	}
 }
 
 void check_positivity(int m, char c)
 {
 	if (m + absolute(m))
-	{
 		_putchar(c);
-		print_number(m);
-	}
 	else
 		print_number(m);
+}
+
+void check_specifier(char c)
+{
+	_putchar(48);
+	if (c == 'x')
+		_putchar(c);
+	else if (c == 'X')
+		_putchar(c);
 }

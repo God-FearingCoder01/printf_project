@@ -9,7 +9,7 @@
 
 int _putchar(char c)
 {
-	static char buf[1024];
+/*	static char buf[1024];
 
 	static int i;
 
@@ -22,6 +22,7 @@ int _putchar(char c)
 	{
 		buf[i] = c;
 		i++;
-	}
-    	return (1);
+	}*/
+
+    	return (write(1, &c, 1));
 }

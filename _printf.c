@@ -7,7 +7,6 @@ int _printf(const char * const format, ...)
 	int format_index = 0;
 	int x, character_to_be_printed;
 	char *specifier_substitute;
-
 	va_list ap;
 
 	va_start(ap, format);
@@ -16,12 +15,11 @@ int _printf(const char * const format, ...)
 	{
 		if (format[format_index] == '%') 
 		{
-			x = format_specifier_elements_number(format, format_index);
-			format_index += x;
+			x = format_specifier_elements_number(format, format_index++);
 			
 			while (x)
 			{
-				switch (format[format_index])
+				switch (format[format_index + 1])
 				{
 				case 'p':
 					character_to_be_printed = va_arg(ap, int);
@@ -66,15 +64,14 @@ int _printf(const char * const format, ...)
 					_putchar(character_to_be_printed);
 					break;
 				default:
-					character_to_be_printed = format[format_index];
-					if (is_flag(character_to_be_printed))
-						print_flag(va_arg(ap, int));
+					if (is_flag(format[format_index]))
+						print_flag(va_arg(ap, int), format[format_index + x]);
 					else
-						_putchar(character_to_be_printed);
+						_putchar(format[format_index]);
 					break;
 				}
+				format_index++;
 				x--;
-				format_index--;
 			}
 		}
 		else
@@ -88,25 +85,32 @@ int _printf(const char * const format, ...)
 	return (format_index);
 }
 
+/**
+ * format_specifier_element_num - returns the position of a conversion speciefer
+ * 				in a formart specifier string
+ * @p: string representing our format specifier
+ * @i: index of that string
+ * Return: an non-zero integer representing the position of conversion
+ * 	specifier in a formart specifier, otherwise a zero value
+ */
+
 int format_specifier_elements_number(const char* const p, int i)
 {
 	int format_specifier_element_num = 0;
 
-	i++;
-
-	while (*(p + i) != ' ' || *(p + i) != '\0')
+	while (!is_conversion_specifier(p[i]))
 	{
-		if (is_conversion_specifier(p[i]) || is_flag(p[i]))
-		{
-			i++;
-			format_specifier_element_num++;
-			continue;
-		}
-		return (format_specifier_element_num);
+		format_specifier_element_num++;
+		i++;
 	}
 	return (format_specifier_element_num);
 }
 
+/**
+ * is_conversion_specifier - checks if a character is a conversion spectfier
+ * *c: character to be checekd
+ * Return: 1 if @c is a conversion specifier, otherwise 0
+ */
 
 int is_conversion_specifier(char c)
 {
