@@ -4,7 +4,7 @@
 
 /**
  * _printf - displays on screen a formatted text input to the function
- * @format - the formatted text to be displayed
+ * @format: the formatted text to be displayed
  * Return: the number of characters printed on screen
  */
 
@@ -18,7 +18,7 @@ int _printf(const char * const format, ...)
 
 	while (format[format_index] != '\0')
 	{
-		if (format[format_index] == '%') 
+		if (format[format_index] == '%')
 		{
 			x = format_specifier_elements_number(format, format_index);
 			format_index += 1;
@@ -26,7 +26,7 @@ int _printf(const char * const format, ...)
 			if (get_conversion_type(format[format_index - 1 + x]) == -1)
 				print_as_it_is(format, &format_index, x);
 			else if (get_conversion_type(format[format_index - 1 + x]) < 9)
-				print_char_int(format, &format_index,va_arg(ap, int), x);
+				print_char_int(format, &format_index, va_arg(ap, int), x);
 			else if (get_conversion_type(format[format_index - 1 + x]) < 11)
 				print_strin(format, &format_index, va_arg(ap, char *), x);
 			continue;
@@ -38,7 +38,13 @@ int _printf(const char * const format, ...)
 	va_end(ap);
 	return (format_index);
 }
-
+/**
+ * print_char_int - do something
+ * @p: ..
+ * @i: ..
+ * @n: ..
+ * @x: ..
+ */
 void print_char_int(const char * const p, int *i, int n, int x)
 {
 	while (x)
@@ -49,13 +55,12 @@ void print_char_int(const char * const p, int *i, int n, int x)
 			_putchar(n);
 			break;
 		case 'd':
-		
 		case 'i':
 			print_number(n);
 			break;
 		case 'b':
-                	print_base(2, n);
-                	break;
+			print_base(2, n);
+			break;
 		case 'u':
 			print_number(n);
 			break;
@@ -72,17 +77,23 @@ void print_char_int(const char * const p, int *i, int n, int x)
 			print_pointer(n);
 			break;
 		default:
-	  		if (is_flag(p[*i]))
+			if (is_flag(p[*i]))
 				print_flag(n, p[(*i) - 1 + x]);
-          		else
-                		_putchar(p[*i]);
+			else
+				_putchar(p[*i]);
 			break;
 		}
 		(*i) += 1;
 		x--;
 	}
 }
-
+/**
+ * print_strin - do something
+ * @p: ..
+ * @i: ..
+ * @s_s: ..
+ * @x: ..
+ */
 void print_strin(const char * const p, int *i, char *s_s, int x)
 {
 	while (x)
@@ -96,9 +107,11 @@ void print_strin(const char * const p, int *i, char *s_s, int x)
 			print_str(s_s);
 			break;
 		default:
-			/*if (is_flag(p[*i]))
-				print_flag(n, p[*i]);
-			else*/
+			/**
+			*if (is_flag(p[*i]))
+			*	print_flag(n, p[*i]);
+			*else
+			*/
 			_putchar(p[*i]);
 			break;
 		}
@@ -106,7 +119,12 @@ void print_strin(const char * const p, int *i, char *s_s, int x)
 		x--;
 	}
 }
-
+/**
+ * print_as_it_is - do something
+ * @p: ..
+ * @i: ..
+ * @x: ..
+ */
 void print_as_it_is(const char * const p, int *i, int x)
 {
 	while (x)
