@@ -18,5 +18,9 @@ void print_flag(int n, char c);
 int is_conversion_specifier(char c);
 int format_specifier_elements_number(const char* const p, int i);
 void check_specifier(char c);
+void print_char_int(const char * const p, int *i, int n, int x);
+void print_strin(const char * const p, int *i, char *s_s, int x);
+void print_as_it_is(const char * const p, int *i, int x);
+int get_conversion_type(char c);
 
 #endif

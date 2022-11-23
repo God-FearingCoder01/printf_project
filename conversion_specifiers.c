@@ -40,3 +40,23 @@ int is_conversion_specifier(char c)
                 return(1);
         return (0);
 }
+
+/**
+ * get_conversion_type - checks the data type of a given conversion specifier
+ * @c: character to be checekd
+ * Description: returrn value eqaul to minus one shows that @c has an unkhonwn type. return value less than nine means that @c has is of type 'char' or 'int'. return value less than eleven means that @c has type 'string'
+ * Return: appropeiate intger value corresponding to the type of @c
+ */
+int get_conversion_type(char c)
+{
+        const int conversion_specifier_size = 11;
+        char conversion_specifier[] = {'c', 'd', 'i', 'b', 'u',
+'o', 'x', 'X', 'p', 's', 'S'};
+        int conversion_specifier_index = 0;
+        while (conversion_specifier[conversion_specifier_index] != c
+&& conversion_specifier_index < conversion_specifier_size)
+                conversion_specifier_index += 1;;
+        if (conversion_specifier_index < conversion_specifier_size)
+                return(conversion_specifier_index);
+        return (-1);
+}
