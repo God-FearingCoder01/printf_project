@@ -2,6 +2,12 @@
 #include <stdarg.h>
 #include "main.h"
 
+/**
+ * _printf - displays on screen a formatted text inout to thr function
+ * @format - the text to be displayed
+ * Return: the number of characters printeed on screen
+ */
+
 int _printf(const char * const format, ...)
 {
 	int format_index = 0;
@@ -83,46 +89,4 @@ int _printf(const char * const format, ...)
 	va_end(ap);
 
 	return (format_index);
-}
-
-/**
- * format_specifier_element_num - returns the position of a conversion speciefer
- * 				in a formart specifier string
- * @p: string representing our format specifier
- * @i: index of that string
- * Return: an non-zero integer representing the position of conversion
- * 	specifier in a formart specifier, otherwise a zero value
- */
-
-int format_specifier_elements_number(const char* const p, int i)
-{
-	int format_specifier_element_num = 0;
-
-	while (!is_conversion_specifier(p[i]))
-	{
-		format_specifier_element_num++;
-		i++;
-	}
-	return (format_specifier_element_num);
-}
-
-/**
- * is_conversion_specifier - checks if a character is a conversion spectfier
- * *c: character to be checekd
- * Return: 1 if @c is a conversion specifier, otherwise 0
- */
-
-int is_conversion_specifier(char c)
-{
-	const int conversion_specifier_size = 11;
-	char conversion_specifier[] = {'c', 's', 'd', 'i', 'b', 'u', 'o', 'x', 'X', 'S', 'p'};
-	int conversion_specifier_index = 0;
-
-	while (conversion_specifier[conversion_specifier_index] != c && conversion_specifier_index < conversion_specifier_size)
-		conversion_specifier_index++;
-
-	if (conversion_specifier_index < conversion_specifier_size)
-		return(1);
-
-	return (0);
 }
